@@ -16,12 +16,10 @@ from app.services.ticket_service import (
     update_ticket,
     delete_ticket,
 )
-
 router = APIRouter(
     prefix="/tickets",
     tags=["Tickets"],
 )
-
 
 @router.post("/", response_model=TicketResponse)
 async def create(

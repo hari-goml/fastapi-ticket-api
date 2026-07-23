@@ -7,6 +7,13 @@ from app.models.base import Base
 
 
 class Ticket(Base):
+
+    StatusEnum = {
+        "open": "open",
+        "in_progress": "in_progress",
+        "resolved": "resolved",     
+    }
+
     __tablename__ = "tickets"
     id: Mapped[UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -30,4 +37,5 @@ class Ticket(Base):
         DateTime,
         default=datetime.utcnow,
     )
+
    
