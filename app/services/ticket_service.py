@@ -1,11 +1,8 @@
 from uuid import UUID
-
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.models.ticket import Ticket
 from app.schemas.ticket import TicketCreate, TicketUpdate
-
 
 async def create_ticket(db: AsyncSession,data: TicketCreate) -> Ticket:
     ticket = Ticket(
@@ -29,7 +26,6 @@ async def get_all(
         stmt = stmt.where(Ticket.priority == priority)
     result = await db.execute(stmt)
     return result.scalars().all()
-
 
 async def get_ticket(db: AsyncSession,ticket_id: UUID):
     result = await db.execute(

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from fastapi import APIRouter
 
@@ -10,5 +10,5 @@ async def ready():
     return {
         "status": "ready",
         "service": "AI Ticket Service",
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
     }

@@ -10,7 +10,6 @@ from pydantic import (
     field_validator,
 )
 
-
 class TicketCreate(BaseModel):
     title: str
     priority: Literal["low", "medium", "high"]
@@ -23,10 +22,8 @@ class TicketCreate(BaseModel):
             raise ValueError("Title cannot be empty")
         return value
 
-
 class TicketUpdate(BaseModel):
     status: Literal["open", "in_progress", "resolved"] | None = None
-
 
 class TicketResponse(BaseModel):
     id: UUID
